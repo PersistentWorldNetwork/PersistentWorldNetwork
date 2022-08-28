@@ -1,5 +1,5 @@
 # Persistent World Network
-Persistent World Network is a proposed suite of open-source software for use in the development and deployment of persistent open-world multi-user experiences. This is not intended to be an all-purpose engine, rather a narrowly-focused effort to close some of the tooling gap that seems to exist in the industry. 
+Persistent World Network is a proposed suite of open-source software for use in the development and deployment of persistent open-world multi-user experiences. This is not intended to be an all-purpose engine, rather a focused effort to create high performance virtual worlds that can be explored and manipulated by many users simultaneously. 
 
 ## Objectives:
 - Low-latency multi-user netcode

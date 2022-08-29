@@ -1,10 +1,10 @@
 # Persistent World Network
-Persistent World Network is a proposed suite of open-source software for use in the development and deployment of persistent open-world multi-user experiences. This is not intended to be an all-purpose engine, rather a focused effort to create high performance virtual worlds that can be explored and manipulated by many users simultaneously. 
+Persistent World Network is a proposed suite of open-source software for use in the development and deployment of persistent open world multiuser experiences. This is not intended to be an all purpose engine, rather a focused effort to create high performance virtual worlds that can be explored and manipulated by many users simultaneously. 
 
 ## Objectives:
-- Low-latency multi-user netcode
-- server-side physics and projectiles with smooth client-side prediction
-- Open-world traversal across connected zone servers
+- Low latency multiuser netcode
+- Server-side physics and projectiles with smooth client-side prediction
+- Open world traversal across connected zone servers
 - Data transfer across servers
 - Persistent world state that can be manipulated by users
 - Persistent user state between sessions
@@ -30,12 +30,12 @@ Persistent World Network is a proposed suite of open-source software for use in 
 - Client library
     - Simulation loop driven by the shared class library
     - rollback prediction
-    - Client-Specific functionality
+    - Client Specific functionality
 
-## Development stages (main objective)
+## Development stages (main objectives)
 Stage 1 (Glorified chatroom)
 - Single zone server
-- basic multi-user movement + physics (static world)
+- basic multiuser movement + physics (static world)
 - client-side physics prediction
 
 Stage 2 (Smooth Simulation)
@@ -43,7 +43,7 @@ Stage 2 (Smooth Simulation)
 - Smooth client-side physics prediction (static world)
 - non-persistent user state
 
-Stage 3 (Open-World traversal)
+Stage 3 (Open World traversal)
 - Multiple zone servers
 - World Server to store global user locations
 - Communicate user positions and state across zone lines
@@ -52,7 +52,7 @@ Stage 4 (Persistence)
 - User authentication
 - World server routing
 - Persistent global user state
-- World server - Manage zone server life cycles
+- World server: Manage zone server life cycles
 - Any other backend infrastructure
 
 Stage 5 (Dynamic world)

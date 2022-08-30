@@ -1,8 +1,8 @@
 # Persistent World Network
-Persistent World Network is a proposed suite of open-source software for use in the development and deployment of persistent open world multi-user experiences. This is not intended to be an all purpose engine, rather a focused effort to create high performance virtual worlds that can be explored and manipulated by many users simultaneously. 
+Persistent World Network is a proposed suite of open-source software for use in the development and deployment of persistent open world networked experiences. This is not intended to be an all purpose engine, rather a focused effort to create high performance virtual worlds that can be explored and manipulated by many users simultaneously. 
 
 ## Objectives:
-- Low latency multi-user netcode
+- Low latency netcode
 - Server-side physics and projectiles with smooth client-side prediction
 - Open world traversal across connected zone servers
 - Data transfer across servers
@@ -35,8 +35,8 @@ Persistent World Network is a proposed suite of open-source software for use in 
 ## Milestones
 Multiplayer
 - Single zone server
-- basic multi-user movement + physics (static world)
-- client-side physics prediction
+- Basic networked movement
+- Basic networked gravity simulation
 
 Netcode
 - Physics Projectile simulation
@@ -53,7 +53,7 @@ Persistent
 - World server routing
 - Persistent global user state
 - World server: Manage zone server life cycles
-- Any other backend infrastructure
+- Any other back-end infrastructure
 
 Dynamic
 - Dynamically change world objects

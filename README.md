@@ -33,12 +33,12 @@ Persistent World Network is a proposed suite of open-source software for use in 
     - Client Specific functionality
 
 ## Milestones
-Multiplayer
+[Networked](Networked.md)
 - Single zone server
 - Basic networked movement
 - Basic networked gravity simulation
 
-Netcode
+Simulated
 - Physics Projectile simulation
 - Smooth client-side physics prediction (static world)
 - non-persistent user state

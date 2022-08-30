@@ -1,4 +1,4 @@
-# Multiplayer
+# Networked
 
 The first milestone is a simple multiplayer networked chatroom. 
 - Single zone server

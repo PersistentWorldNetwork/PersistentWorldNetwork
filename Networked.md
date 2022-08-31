@@ -1,9 +1,10 @@
 # Networked
-
-The first milestone is a simple networked 3D chatroom. 
+[Milestone](https://github.com/PersistentWorldNetwork/PersistentWorldNetwork/milestone/1)
 - Single zone server
 - Basic networked movement
 - Basic networked gravity simulation
+
+The first milestone is a simple networked 3D chatroom. 
 
 ## Components
 - web-client

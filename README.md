@@ -38,24 +38,24 @@ Persistent World Network is a proposed suite of open-source software for use in 
 - Basic networked movement
 - Basic networked gravity simulation
 
-Simulated
+[Simulated](Simulated.md)
 - Physics Projectile simulation
 - Smooth client-side physics prediction (static world)
 - non-persistent user state
 
-Open-World
+[Open-World](Open-World.md)
 - Multiple zone servers
 - World Server to store global user locations
 - Communicate user positions and state across zone lines
 
-Persistent
+[Persistent](Persistent.md)
 - User authentication
 - World server routing
 - Persistent global user state
 - World server: Manage zone server life cycles
 - Any other back-end infrastructure
 
-Dynamic
+[Dynamic](Dynamic.md)
 - Dynamically change world objects
 - Physics with dynamic objects
 - Physics with moving objects

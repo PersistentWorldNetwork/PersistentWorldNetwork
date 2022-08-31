@@ -1,6 +1,6 @@
 # Networked
 
-The first milestone is a simple multiplayer networked chatroom. 
+The first milestone is a simple networked 3D chatroom. 
 - Single zone server
 - Basic networked movement
 - Basic networked gravity simulation

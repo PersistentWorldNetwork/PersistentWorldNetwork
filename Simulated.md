@@ -4,6 +4,9 @@
 - Smooth client-side physics prediction (static world)
 - non-persistent user state
 
+## Misc Notes
+- The 3d/physics engine will handle all of the collision calculations and return the final results to the networking layer for replication
+ 
 ## Useful resources:
 - [Networking for Virtual Worlds Net5/Amalgam (YouTube)](https://www.youtube.com/watch?v=0wOZusuMIIM)
 - [Overwatch Gameplay Architecture and Netcode (YouTube)](https://www.youtube.com/watch?v=zrIY0eIyqmI)

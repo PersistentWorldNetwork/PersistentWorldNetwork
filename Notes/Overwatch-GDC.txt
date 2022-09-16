@@ -1,0 +1,51 @@
+https://www.youtube.com/watch?v=zrIY0eIyqmI @ 24 minutes
+
+Time quantized into command frames
+16ms fixed frames
+roll-over remainder accumulator render frames
+
+the clients is always  ahead
+store movement states AND inputs
+when misprediction occurs, replay all inputs
+	restore movement states
+	replay movements
+	
+packet loss
+client sends unreliable packets
+server keeps buffer of unsimulated input, takes guesses (duplicates)
+when client fails to send inputs
+	server tells client there was missed packets
+	client starts sending more inputs
+	this increases the "buffer"
+	when you catch back up the server lets the client know
+	recreate inputs to decrease buffer
+	client and server is constantly doing this communication
+try to minimize mispredictions from input duplication
+client always sends a sliding window of inputs
+send all inputs from last acknowledged movement packet from server
+	if a packet is lost, the sliding window will fill in the gaps
+
+statescript
+scrubs back and forth through time for abilities
+same principle as movement
+client and server both simulate locally
+client deals with mispredictions by rolling back, applying snapshot, resimulating
+
+movementstate system controls movement, interpolates position
+also responsible for storing ring buffer of inputs
+
+bounding volumes are snapshots in time that represents their movement
+	basically 3d volume of possible places they could be
+	if a ray intersects a bounding box it would cause rollback
+
+once you get above 220 ping start deferring hit impacts
+stop predicting, wait til server predicts
+start extrapolating on client
+put clamps on the rewinding, only rewind certain amount then extrapolate
+dead reckoning
+your ping sucks we don't honor you
+
+favor shooter most of the time unless victim does something cool to evade it
+
+anything with a movement state will be rewound
+movement state can be scrubbed along a timeline that matches frame of reference of player

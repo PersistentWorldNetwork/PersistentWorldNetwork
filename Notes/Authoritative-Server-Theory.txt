@@ -1,0 +1,85 @@
+Part 1:
+starting with a basic setup, client and server
+scenario: a client wants to move to the right
+
+intuitive/naive approach:
+    the client knows where it is
+    just send tha position from the client to the server
+    server trusts the position and repeats it to all other players
+    when the client position changes, send it to the server and replicate
+        d key pressed, movement processed on client, position changed on client, position sent to server, server broadcasts new position to other clients, they replicate position change on their client
+this intuitive approach works if you trust all clients, but you can't trust players
+the  client is in the hands of the enemy )hackers)
+
+better approach: authoritative server
+all actions are made by the server, user actions are verified by server
+the client can only *request* that something happens
+we could have the user request a new position, but it's not great
+instead we want users to request an input direction
+we keep some kind of system that tracks all inputs (D key is abstracted out to right novement, s to down movement)
+on both client and server we track the input state of the entity
+when a user pressed the D key, send a request to the server to change input state
+input array [up right down left]
+press d key, client sends a request to server, server receives request change to input array
+server changes input array and applies its own processing and sends eresults back to client
+then movement can be processed and a new position for the entity will be sent to the client (the result of the movement)
+
+problem with this approach is there is travel time between the client and server
+it takes a while to receive a response and show results
+we need to add client prediction
+
+
+Part 2:
+we need to make changes on the client side as soon as you press the key
+process the movement on the client, same  code that the server runs
+we know the movement processing will be the exact same as long as you start at the same place and run the same code
+this predicts where the user will end up, but you need to reconcile the server's authoritative state
+if you don't predict correctly
+    figure out why it went wrong
+    reconcile it with the authoritative state
+this is a simple example, but we really operate on unreliable networks receiving unordered packets
+we need a programmatic way of corresponding the client state predictions with the authoritative server states
+we need to define a concrete example of time
+    wall time is bad 
+    machine time is bad
+    tick is good
+
+Tick function of the simulation is called every x miliseconds
+that is the function calls the simulation's systems (movement, input systems)
+those are happening once every tick
+
+Tick in this video is being used to describe this tick function but also using it to describe the iteration number of the simulation
+users send messages and tell the server which tick those messages correspond to
+server responses also contain tick numbers
+How to sync? part 3
+client is always ahead of the server, so when it receives it has enough time to process it
+
+Ticks give us a concept of time and a way to sync that time between machines
+we also need a history
+we will use the input history not the position history, because it's more convenient to replay and is smaller
+given a starting state and a set of inputs we can deterministically process the outcome
+harder to lerp between position history
+client is already talking in terms of inputs, so its easier to maintain that consistent communication
+some engines do use positions (snapshot method) like source engine
+
+we did our prediction but we received an authoritative state and we must reconcile
+steps for reconciliation
+    1) apply the authoritative data
+        we have a set of predictions at certain Ticks
+        we receive an update containing a specific tick 
+        override the value
+    2) replay any inputs that occurred after the authoritative data tick
+    3) compare your previous prediction with the new replayed prediction
+        if we mis-predicted, we need to reconcile
+        differs depends on the causes
+            lost packet from client to server - need to move yourself back to wherever server thinks you are
+                might have to change your local input history
+                server detect that messages were dropped, maybe it stops moving the player entity
+                overrides your local input history
+            other player actions
+                need to rollback, maybe lerp
+
+we hand-waved how the synchronization of ticks happens
+
+
+Part 3

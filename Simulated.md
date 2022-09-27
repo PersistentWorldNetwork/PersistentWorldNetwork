@@ -16,3 +16,4 @@
 - [UE5 Network Overview](https://docs.unrealengine.com/5.0/en-US/networking-overview-for-unreal-engine/)
 - [Amalgam Engine (GitHub)](https://github.com/Net5F/AmalgamEngine)
 - [Net5/Amalgam Networking Notes](https://docs.google.com/document/d/1QA5yVbRsZ_NYeoyECesg0cHpY-ocYvHEgATaTwCwdTc)
+- [League Of Legends Determinism](https://technology.riotgames.com/news/determinism-league-legends-introduction)
